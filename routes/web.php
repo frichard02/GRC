@@ -12,10 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('auth/login');
+    return view('vendor/adminlte/login');
 });
 
-Auth::routes();
 
+Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/tableau-bord', 'TableauBordController@index');
+Route::get('/tableau-bord', 'TableauBordController@index')->middleware('auth');
+
+//traduction route
+Route::name('language')->get('language/{lang}', 'HomeController@language');
