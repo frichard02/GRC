@@ -20,5 +20,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/tableau-bord', 'TableauBordController@index')->middleware('auth');
 
+//formulaire test
+Route::get('/form-test', 'FormulaireTestController@index')->middleware('auth');
+Route::get('/form-test', 'FormulaireTestController@create')->middleware('auth');
+Route::post('/form-test', 'FormulaireTestController@store')->middleware('auth');
 //traduction route
 Route::name('language')->get('language/{lang}', 'HomeController@language');
+
