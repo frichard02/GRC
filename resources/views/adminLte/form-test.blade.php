@@ -19,8 +19,8 @@
                 <div class="box-body">
                     <div class="form-group">
                         <label for="adresse">Votre address</label>
-                        <input type="text"  class="form-control {{ $errors->has('adresse') ? 'is-invalid' : '' }}"  name="adresse" id="adresse" placeholder="4 rue ..." value="{{ old('adresse') }}">
-                        {!! $errors->first('adresse', '<div class="alert alert-danger">:message</div>') !!}
+                        <input type="text"  class="form-control {{ $errors->has('adress') ? 'is-invalid' : '' }}"  name="adress" id="adress" placeholder="4 rue ..." value="{{ old('adress') }}">
+                        {!! $errors->first('adress', '<div class="alert alert-danger">:message</div>') !!}
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Numero de téléphone</label>
