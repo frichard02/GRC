@@ -14,7 +14,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="post" action="{{ url('form-test') }}" enctype="multipart/form-data">>
+            <form role="form" method="post" action="{{ route('form-test.delete') }}" enctype="multipart/form-data">>
                 {{ csrf_field() }}
                 <div class="box-body">
                     <div class="form-group">
@@ -39,6 +39,13 @@
                     <button type="submit" class="btn btn-primary">Envoyer</button>
                 </div>
             </form>
+            @if(!empty($adress))
+                @foreach($adress as $form)
+                {{$form->id}}<br>
+                {{$form->adress}}<br>
+                {{$form->tel}}<br>
+                @endforeach
+            @endif
         </div>
     </div>
 @stop
