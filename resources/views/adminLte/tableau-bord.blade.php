@@ -7,7 +7,35 @@
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin Tableau de bord.</p>
+
+    @if(!empty($articles))
+        <div class="row">
+        @foreach($articles as $article)
+                <div class="col-md-6">
+                    <div class="box box-solid">
+                        <div class="box-header with-border">
+                            <i class="fa fa-text-width"></i>
+
+                            <h3 class="box-title">{{$article['titre']}}</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <blockquote>
+                                <p>{{$article['message']}}</p>
+                                @foreach($users as $user)
+                                    @if($user['id'] == $article['user_id'])
+                                        <small>Rédigé par <cite title="Source Title"> {{$user['name']}}</cite></small>
+                                    @endif
+                                @endforeach
+                            </blockquote>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+        @endforeach
+        </div>
+    @endif
 @stop
 
 @section('css')

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\article;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TableauBordController extends Controller
 {
@@ -13,7 +16,10 @@ class TableauBordController extends Controller
      */
     public function index()
     {
-        return view('adminLte.tableau-bord');
+        $id = Auth::id();
+        $users = User::all();
+        $articles = article::all();
+        return view('adminLte.tableau-bord',compact('articles', 'users'));
     }
 
     /**
